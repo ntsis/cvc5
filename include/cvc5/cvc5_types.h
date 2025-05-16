@@ -676,7 +676,8 @@ namespace cvc5 {
 #endif
 
 /* -------------------------------------------------------------------------- */
-/* Objective kinds                                                            */ 
+/* Objective kinds                                                            */
+/* This enumeration is experimental and may be subject to change              */
 /* -------------------------------------------------------------------------- */
 
 #ifdef CVC5_API_USE_C_ENUMS
@@ -718,7 +719,8 @@ typedef enum ENUM(ObjectiveKind) ENUM(ObjectiveKind);
  * @param ok The objective kind.
  * @return The string representation.
  */
-const char* cvc5_objective_kind_to_string(Cvc5ObjectiveKind ok);
+CVC5_EXPORT const char* cvc5_objective_kind_to_string(
+    Cvc5ObjectiveKind ok);
 #else
 /**
  * Serialize an ObjectiveKind to given stream.
@@ -737,7 +739,8 @@ namespace cvc5 {
 #endif
 
 /* -------------------------------------------------------------------------- */
-/* Strategy kinds                                                             */ 
+/* Strategy kinds                                                             */
+/* This enumeration is experimental and may be subject to change              */
 /* -------------------------------------------------------------------------- */
 
 #ifdef CVC5_API_USE_C_ENUMS
@@ -771,7 +774,8 @@ typedef enum ENUM(OMTStrategyKind) ENUM(OMTStrategyKind);
  * @param osk The optimization strategy kind.
  * @return The string representation.
  */
-const char* cvc5_omt_strategy_kind_to_string(Cvc5OMTStrategyKind osk);
+CVC5_EXPORT const char* cvc5_omt_strategy_kind_to_string(
+    Cvc5OMTStrategyKind osk);
 #else
 /**
  * Serialize an OMTStrategyKind to given stream.
