@@ -221,6 +221,7 @@ TEST_F(TestCApiBlackUncovered, default_constructors)
   (void)cvc5::DatatypeConstructor();
   (void)cvc5::DatatypeSelector();
   (void)cvc5::SynthResult();
+  (void)cvc5::OmtResult();
   (void)cvc5::Grammar();
   (void)cvc5::Result();
   (void)cvc5::Proof();

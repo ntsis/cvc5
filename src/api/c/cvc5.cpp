@@ -3922,6 +3922,40 @@ size_t cvc5_synth_result_hash(Cvc5SynthResult result)
 }
 
 /* -------------------------------------------------------------------------- */
+/* Cvc5OmtResult                                                              */
+/* -------------------------------------------------------------------------- */
+
+bool cvc5_omt_result_is_null(const Cvc5OmtResult result)
+{
+  bool res = false;
+  CVC5_CAPI_TRY_CATCH_BEGIN;
+  CVC5_CAPI_CHECK_OMT_RESULT(result);
+  res = result->d_result.isNull();
+  CVC5_CAPI_TRY_CATCH_END;
+  return res;
+}
+
+const char* cvc5_omt_result_to_string(const Cvc5OmtResult result)
+{
+  static thread_local std::string str;
+  CVC5_CAPI_TRY_CATCH_BEGIN;
+  CVC5_CAPI_CHECK_OMT_RESULT(result);
+  str = result->d_result.toString();
+  CVC5_CAPI_TRY_CATCH_END;
+  return str.c_str();
+}
+
+size_t cvc5_omt_result_hash(Cvc5OmtResult result)
+{
+  size_t res = 0;
+  CVC5_CAPI_TRY_CATCH_BEGIN;
+  CVC5_CAPI_CHECK_OMT_RESULT(result);
+  res = std::hash<cvc5::OmtResult>{}(result->d_result);
+  CVC5_CAPI_TRY_CATCH_END;
+  return res;
+}
+
+/* -------------------------------------------------------------------------- */
 /* Cvc5Proof                                                                  */
 /* -------------------------------------------------------------------------- */
 
