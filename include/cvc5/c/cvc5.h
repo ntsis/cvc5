@@ -53,6 +53,19 @@ typedef struct cvc5_result_t* Cvc5Result;
 typedef struct cvc5_synth_result_t* Cvc5SynthResult;
 
 /**
+ * Encapsulation of a solver OMT result.
+ *
+ * This is the return value of the API functions (to be added):
+ *   - cvc5_optimize_sat()
+ *   - cvc5_optimize_sat_next()
+ *
+ * which we call "optimization queries".  This class indicates whether the
+ * OMT query has an optimal/limit-optimal/non-optimal solution, or if it is
+ * unbounded, unsatisfiable, or unknown.
+ */
+typedef struct cvc5_omt_result_t* Cvc5OmtResult;
+
+/**
  * The sort of a cvc5 term.
  */
 typedef struct cvc5_sort_t* Cvc5Sort;
@@ -338,6 +351,48 @@ CVC5_EXPORT Cvc5SynthResult cvc5_synth_result_copy(Cvc5SynthResult result);
  *       that is owned by the callee of the function and thus, can be released.
  */
 CVC5_EXPORT void cvc5_synth_result_release(Cvc5SynthResult result);
+
+
+/** @} */
+
+/* -------------------------------------------------------------------------- */
+/* Cvc5OmtResult                                                              */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Enum wrapper for the OMT result status. Used for testing.
+ */
+typedef enum Cvc5OmtResultStatus
+{
+  CVC5_OMT_RESULT_STATUS_NONE,
+  CVC5_OMT_RESULT_STATUS_OPTIMAL,
+  CVC5_OMT_RESULT_STATUS_LIMIT_OPTIMAL,
+  CVC5_OMT_RESULT_STATUS_NON_OPTIMAL,
+  CVC5_OMT_RESULT_STATUS_UNBOUNDED,
+  CVC5_OMT_RESULT_STATUS_UNSAT,
+  CVC5_OMT_RESULT_STATUS_UNKNOWN
+} Cvc5OmtResultStatus;
+
+/** \addtogroup c_cvc5omtresult
+ *  @{
+ */
+
+/**
+ * Determine if a given OMT result is empty (a nullary result) and not an
+ * actual result returned from an OMT query.
+ * @param result The result.
+ * @return True if the given result is a nullary result.
+ */
+CVC5_EXPORT bool cvc5_omt_result_is_null(const Cvc5OmtResult result);
+
+/**
+ * Get the string representation of a given result.
+ * @param result The result.
+ * @return A string representation of the given OMT result.
+ * @note The returned char* pointer is only valid until the next call to this
+ *       function.
+ */
+CVC5_EXPORT const char* cvc5_omt_result_to_string(const Cvc5OmtResult result);
 
 /** @} */
 
