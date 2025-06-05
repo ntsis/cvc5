@@ -256,6 +256,7 @@ TEST_F(TestApiBlackUncovered, streaming_operators_to_string)
   ss << cvc5::Result();
   ss << cvc5::Op();
   ss << cvc5::SynthResult();
+  ss << cvc5::OmtResult();
   ss << cvc5::Grammar();
 
   Sort intsort = d_tm.getIntegerSort();
