@@ -48,8 +48,8 @@ TEST_F(TestApiTypes, printEnum)
     ss << cvc5::modes::FindSynthTarget::ENUM << " ";
     ss << cvc5::modes::InputLanguage::SMT_LIB_2_6 << " ";
     ss << cvc5::modes::ProofFormat::LFSC << " ";
-    ss << cvc5::ObjectiveKind::OBJECTIVE_MAX << " ";
-    ss << cvc5::OMTStrategyKind::STRATEGY_BINARY;
+    ss << cvc5::modes::ObjectiveKind::OBJECTIVE_MAX << " ";
+    ss << cvc5::modes::OMTStrategyKind::STRATEGY_BINARY;
     ASSERT_EQ(ss.str(), expected);
   }
   {
@@ -64,8 +64,8 @@ TEST_F(TestApiTypes, printEnum)
     ss << std::to_string(cvc5::modes::FindSynthTarget::ENUM) << " ";
     ss << std::to_string(cvc5::modes::InputLanguage::SMT_LIB_2_6) << " ";
     ss << std::to_string(cvc5::modes::ProofFormat::LFSC) << " ";
-    ss << std::to_string(cvc5::ObjectiveKind::OBJECTIVE_MAX) << " ";
-    ss << std::to_string(cvc5::OMTStrategyKind::STRATEGY_BINARY);
+    ss << std::to_string(cvc5::modes::ObjectiveKind::OBJECTIVE_MAX) << " ";
+    ss << std::to_string(cvc5::modes::OMTStrategyKind::STRATEGY_BINARY);
     ASSERT_EQ(ss.str(), expected);
   }
 }

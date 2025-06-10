@@ -672,7 +672,7 @@ namespace std {
 CVC5_EXPORT std::string to_string(cvc5::modes::InputLanguage lang);
 }
 
-namespace cvc5 {
+namespace cvc5::modes {
 #endif
 
 /* -------------------------------------------------------------------------- */
@@ -729,13 +729,13 @@ CVC5_EXPORT const char* cvc5_objective_kind_to_string(
  * @return The output stream
  */
 CVC5_EXPORT std::ostream& operator<<(std::ostream& out, ObjectiveKind ok);
-}  // namespace cvc5
+}  // namespace cvc5::modes
 
 namespace std {
-std::string to_string(cvc5::ObjectiveKind ok);
+std::string to_string(cvc5::modes::ObjectiveKind ok);
 }
 
-namespace cvc5 {
+namespace cvc5::modes {
 #endif
 
 /* -------------------------------------------------------------------------- */
@@ -785,10 +785,10 @@ CVC5_EXPORT const char* cvc5_omt_strategy_kind_to_string(
  * @return The output stream
  */
 CVC5_EXPORT std::ostream& operator<<(std::ostream& out, OMTStrategyKind osk);
-}  // namespace cvc5
+}  // namespace cvc5::modes
 
 namespace std {
-std::string to_string(cvc5::OMTStrategyKind osk);
+std::string to_string(cvc5::modes::OMTStrategyKind osk);
 }
 #endif
 
