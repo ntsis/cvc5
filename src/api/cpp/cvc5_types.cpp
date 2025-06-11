@@ -247,6 +247,7 @@ std::ostream& operator<<(std::ostream& out, ObjectiveKind ok)
     case ObjectiveKind::OBJECTIVE_MAX: out << "OBJECTIVE_MAX"; break;
     case ObjectiveKind::OBJECTIVE_LEX: out << "OBJECTIVE_LEX"; break;
     case ObjectiveKind::OBJECTIVE_PARETO: out << "OBJECTIVE_PARETO"; break;
+    case ObjectiveKind::OBJECTIVE_BOX: out << "OBJECTIVE_BOX"; break;
     case ObjectiveKind::OBJECTIVE_MINMAX: out << "OBJECTIVE_MINMAX"; break;
     case ObjectiveKind::OBJECTIVE_MAXMIN: out << "OBJECTIVE_MAXMIN"; break;
     default:

@@ -697,7 +697,9 @@ enum ENUM(ObjectiveKind)
   EVALUE(OBJECTIVE_LEX),
   /** Pareto multi-objective. */
   EVALUE(OBJECTIVE_PARETO),
-  /** MINMAX multi-objective. */
+  /** Box multi-objective. */
+  EVALUE(OBJECTIVE_BOX),
+  /** MINMAX multi-objective. */  
   EVALUE(OBJECTIVE_MINMAX),
   /** MAXMIN multi-objective. */
   EVALUE(OBJECTIVE_MAXMIN),
