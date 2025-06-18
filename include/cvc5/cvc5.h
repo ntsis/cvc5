@@ -452,7 +452,10 @@ class CVC5_EXPORT OmtResult
 
   /**
    * Return true if query was to return an approximation to an optimal solution 
-   * for optimizeSat() or optimizeSatNext() query.
+   * for optimizeSat() or optimizeSatNext() query, i.e.
+   * return a solution but not an optimal solution.
+   * In this case the solver was not able to determine the query to be in
+   * either the limit-optimal or unbounded categories.
    */
   bool isNonOptimal() const;
 
@@ -495,7 +498,7 @@ class CVC5_EXPORT OmtResult
   /**
    * @return A string representation of this OMT result.
    */
-  std::string toString() const;
+  std::string toString() const;  
 
  private:
   /**

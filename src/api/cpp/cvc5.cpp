@@ -1296,37 +1296,38 @@ namespace cvc5 {
 /* OmtResult                                                                  */
 /* -------------------------------------------------------------------------- */
 
-OmtResult::OmtResult(const internal::OmtResult& r)
-    : d_result(new internal::OmtResult(r))
-{
-}
-
 OmtResult::OmtResult() : d_result(new internal::OmtResult()) {}
 
 bool OmtResult::isNull() const
 {
   return d_result->getStatus() == internal::OmtResult::NONE;
 }
+
 bool OmtResult::isOptimal() const
 {
   return d_result->getStatus() == internal::OmtResult::OPTIMAL;
 }
+
 bool OmtResult::isLimitOptimal() const
 {
   return d_result->getStatus() == internal::OmtResult::LIMIT_OPTIMAL;
 }
+
 bool OmtResult::isNonOptimal() const
 {
   return d_result->getStatus() == internal::OmtResult::NON_OPTIMAL;
 }
+
 bool OmtResult::isUnbounded() const
 {
   return d_result->getStatus() == internal::OmtResult::UNBOUNDED;
 }
+
 bool OmtResult::isUnsat() const
 {
   return d_result->getStatus() == internal::OmtResult::UNSAT;
 }
+
 bool OmtResult::isUnknown() const
 {
   return d_result->getStatus() == internal::OmtResult::UNKNOWN;

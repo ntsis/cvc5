@@ -29,4 +29,55 @@ TEST_F(TestCApiBlackOmtResult, is_null)
   ASSERT_DEATH(cvc5_omt_result_is_null(nullptr), "invalid OMT result");
 }
 
+TEST_F(TestCApiBlackOmtResult, is_optimal)
+{
+  ASSERT_DEATH(cvc5_omt_result_is_optimal(nullptr), "invalid OMT result");
+}
+
+TEST_F(TestCApiBlackOmtResult, is_limit_optimal)
+{
+  ASSERT_DEATH(cvc5_omt_result_is_limit_optimal(nullptr), "invalid OMT result");
+}
+
+TEST_F(TestCApiBlackOmtResult, is_non_optimal)
+{
+  ASSERT_DEATH(cvc5_omt_result_is_non_optimal(nullptr), "invalid OMT result");
+}
+
+TEST_F(TestCApiBlackOmtResult, is_unbounded)  
+{
+  ASSERT_DEATH(cvc5_omt_result_is_unbounded(nullptr), "invalid OMT result");
+}
+
+TEST_F(TestCApiBlackOmtResult, is_unsat)
+{
+  ASSERT_DEATH(cvc5_omt_result_is_unsat(nullptr), "invalid OMT result");
+}
+
+TEST_F(TestCApiBlackOmtResult, is_unknown)
+{  
+  ASSERT_DEATH(cvc5_omt_result_is_unknown(nullptr), "invalid OMT result");
+}
+
+TEST_F(TestCApiBlackOmtResult, to_string)
+{  
+  ASSERT_DEATH(cvc5_omt_result_to_string(nullptr),  "invalid OMT result");
+}
+
+TEST_F(TestCApiBlackOmtResult, is_equal_disequal)
+{
+  ASSERT_TRUE(cvc5_synth_result_is_equal(nullptr, nullptr));
+  ASSERT_FALSE(cvc5_synth_result_is_disequal(nullptr, nullptr));  
+}
+
+TEST_F(TestCApiBlackOmtResult, hash)
+{
+  ASSERT_DEATH(cvc5_omt_result_hash(nullptr), "invalid OMT result");
+}
+
+TEST_F(TestCApiBlackOmtResult, copy_release)
+{
+  ASSERT_DEATH(cvc5_omt_result_copy(nullptr), "invalid OMT result");
+  ASSERT_DEATH(cvc5_omt_result_release(nullptr), "invalid OMT result");
+}
 }  // namespace cvc5::internal::test

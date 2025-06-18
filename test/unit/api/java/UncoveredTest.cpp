@@ -373,6 +373,12 @@ TEST_F(TestApiBlackUncovered, SynthResult)
   ASSERT_FALSE(r != r);
 }
 
+TEST_F(TestApiBlackUncovered, OmtResult)
+{
+  cvc5::OmtResult r;
+  ASSERT_FALSE(r != r);
+}
+
 TEST_F(TestApiBlackUncovered, Parser)
 {
   parser::Command command;

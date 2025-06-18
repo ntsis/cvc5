@@ -1158,7 +1158,8 @@ cdef class OmtResult:
         - :py:meth:`Solver.optimizeSatNext()`
 
       which we call optimization queries.  This class indicates whether the
-      optimization query returned an optimal solution, a non-optimal (approximate) solution, 
+      optimization query returned an optimal solution, a limit-optimal solution, 
+      a non-optimal (approximate) solution, is unbounded,
       has no solution, or is unknown.
     """
     cdef c_OmtResult cr
@@ -1170,7 +1171,7 @@ cdef class OmtResult:
         return self.cr == other.cr
 
     def __ne__(self, OmtResult other):
-        return self.cr != other.cr
+        return self.cr != other.cr        
 
     def isNull(self):
         """
@@ -1219,7 +1220,7 @@ cdef class OmtResult:
         return self.cr.toString().decode()
         
     def __repr__(self):
-        return self.cr.toString().decode()
+        return self.cr.toString().decode()        
 
 # ----------------------------------------------------------------------------
 # TermManager

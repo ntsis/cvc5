@@ -72,8 +72,8 @@ public class OmtResult extends AbstractPointer
   private native boolean equals(long pointer1, long pointer2);
 
   /**
-   * @return True if SynthResult is empty, i.e., a nullary SynthResult, and not
-   * an actual result returned from a synthesis query.
+   * @return True if OmtResult is empty, i.e., a nullary OmtResult, and not
+   * an actual result returned from an optimization query.
    */
   public boolean isNull()
   {
@@ -148,4 +148,5 @@ public class OmtResult extends AbstractPointer
   }
 
   private native int hashCode(long pointer);
+
 }

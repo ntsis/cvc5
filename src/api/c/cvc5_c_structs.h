@@ -531,7 +531,7 @@ struct Cvc5
   cvc5_synth_result_t* copy(cvc5_synth_result_t* result);
 
   /**
-   * Export C++ synthesis result to C API.
+   * Export C++ OMT result to C API.
    * @param result The OMT  result to export.
    */
   Cvc5OmtResult export_omt_result(const cvc5::OmtResult& result);
@@ -593,7 +593,7 @@ struct Cvc5
   std::unordered_map<cvc5::Result, cvc5_result_t> d_alloc_results;
   /** Cache of allocated syntheis results. */
   std::unordered_map<cvc5::SynthResult, cvc5_synth_result_t>
-      d_alloc_synth_results;
+      d_alloc_synth_results;    
   /** Cache of allocated OMT results. */
   std::unordered_map<cvc5::OmtResult, cvc5_omt_result_t>
       d_alloc_omt_results;      

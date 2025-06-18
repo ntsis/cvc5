@@ -3925,12 +3925,124 @@ size_t cvc5_synth_result_hash(Cvc5SynthResult result)
 /* Cvc5OmtResult                                                              */
 /* -------------------------------------------------------------------------- */
 
+Cvc5OmtResult cvc5_omt_result_copy(Cvc5OmtResult result)
+{
+  Cvc5OmtResult res = nullptr;
+  CVC5_CAPI_TRY_CATCH_BEGIN;
+  CVC5_CAPI_CHECK_OMT_RESULT(result);
+  res = result->d_cvc5->copy(result);
+  CVC5_CAPI_TRY_CATCH_END;
+  return res;
+}
+
+void cvc5_omt_result_release(Cvc5OmtResult result)
+{
+  CVC5_CAPI_TRY_CATCH_BEGIN;
+  CVC5_CAPI_CHECK_OMT_RESULT(result);
+  result->d_cvc5->release(result);
+  CVC5_CAPI_TRY_CATCH_END;
+}
+
 bool cvc5_omt_result_is_null(const Cvc5OmtResult result)
 {
   bool res = false;
   CVC5_CAPI_TRY_CATCH_BEGIN;
   CVC5_CAPI_CHECK_OMT_RESULT(result);
   res = result->d_result.isNull();
+  CVC5_CAPI_TRY_CATCH_END;
+  return res;
+}
+
+bool cvc5_omt_result_is_optimal(const Cvc5OmtResult result)
+{
+  bool res = false;
+  CVC5_CAPI_TRY_CATCH_BEGIN;
+  CVC5_CAPI_CHECK_OMT_RESULT(result);
+  res = result->d_result.isOptimal();
+  CVC5_CAPI_TRY_CATCH_END;
+  return res;
+}
+
+bool cvc5_omt_result_is_limit_optimal(const Cvc5OmtResult result)
+{
+  bool res = false;
+  CVC5_CAPI_TRY_CATCH_BEGIN;
+  CVC5_CAPI_CHECK_OMT_RESULT(result);
+  res = result->d_result.isLimitOptimal();
+  CVC5_CAPI_TRY_CATCH_END;
+  return res;
+}
+
+bool cvc5_omt_result_is_non_optimal(const Cvc5OmtResult result)
+{
+  bool res = false;
+  CVC5_CAPI_TRY_CATCH_BEGIN;
+  CVC5_CAPI_CHECK_OMT_RESULT(result);
+  res = result->d_result.isNonOptimal();
+  CVC5_CAPI_TRY_CATCH_END;
+  return res;
+}
+
+bool cvc5_omt_result_is_unbounded(const Cvc5OmtResult result)
+{
+  bool res = false;
+  CVC5_CAPI_TRY_CATCH_BEGIN;
+  CVC5_CAPI_CHECK_OMT_RESULT(result);
+  res = result->d_result.isUnbounded();
+  CVC5_CAPI_TRY_CATCH_END;
+  return res;
+}
+
+bool cvc5_omt_result_is_unsat(const Cvc5OmtResult result)
+{
+  bool res = false;
+  CVC5_CAPI_TRY_CATCH_BEGIN;
+  CVC5_CAPI_CHECK_OMT_RESULT(result);
+  res = result->d_result.isUnsat();
+  CVC5_CAPI_TRY_CATCH_END;
+  return res;
+}
+
+bool cvc5_omt_result_is_unknown(const Cvc5OmtResult result)
+{
+  bool res = false;
+  CVC5_CAPI_TRY_CATCH_BEGIN;
+  CVC5_CAPI_CHECK_OMT_RESULT(result);
+  res = result->d_result.isUnknown();
+  CVC5_CAPI_TRY_CATCH_END;
+  return res;
+}
+
+bool cvc5_omt_result_is_equal(const Cvc5OmtResult a,
+                                const Cvc5OmtResult b)
+{
+  bool res = false;
+  CVC5_CAPI_TRY_CATCH_BEGIN;
+  if (a == nullptr || b == nullptr)
+  {
+    res = a == b;
+  }
+  else
+  {
+    res = a->d_result == b->d_result;
+  }
+  CVC5_CAPI_TRY_CATCH_END;
+  return res;
+}
+
+bool cvc5_omt_result_is_disequal(const Cvc5OmtResult a,
+                                   const Cvc5OmtResult b)
+{
+  bool res = false;
+  CVC5_CAPI_TRY_CATCH_BEGIN;
+  if (a == nullptr || b == nullptr)
+  {
+    res = a != b;
+  }
+  else
+  {
+    res = a->d_result != b->d_result;
+  }
   CVC5_CAPI_TRY_CATCH_END;
   return res;
 }
@@ -3954,7 +4066,6 @@ size_t cvc5_omt_result_hash(Cvc5OmtResult result)
   CVC5_CAPI_TRY_CATCH_END;
   return res;
 }
-
 /* -------------------------------------------------------------------------- */
 /* Cvc5Proof                                                                  */
 /* -------------------------------------------------------------------------- */

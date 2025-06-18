@@ -196,6 +196,7 @@ TEST_F(TestCApiBlackUncovered, stream_operators)
   ss << d_solver->checkSynth();
   ss << d_solver->mkGrammar({}, {d_tm.mkVar(d_bool)});
   ss << d_solver->checkSat();
+  ss << cvc5::OmtResult();
 
   DatatypeDecl decl = d_tm.mkDatatypeDecl("list");
   DatatypeConstructorDecl cons = d_tm.mkDatatypeConstructorDecl("cons");

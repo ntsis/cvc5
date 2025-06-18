@@ -28,3 +28,12 @@ def test_is_null_omtresult():
     assert not res_null.isUnbounded()
     assert not res_null.isUnsat()
     assert not res_null.isUnknown()
+    assert str(res_null) == '(NONE)'
+
+def test_equal():
+    res1 = OmtResult()
+    res2 = OmtResult()
+    assert res1 == res1
+    assert res1 == res2
+    assert not res1 != res2
+    assert res1 == OmtResult()

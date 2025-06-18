@@ -234,7 +234,6 @@ cdef extern from "<cvc5/cvc5.h>" namespace "cvc5":
         bint operator==(const OmtResult& r) except +
         bint operator!=(const OmtResult& r) except +
         string toString() except +
-    
 
     cdef cppclass TermManager:
         TermManager() except +

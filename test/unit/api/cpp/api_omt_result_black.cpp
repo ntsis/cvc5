@@ -35,7 +35,23 @@ TEST_F(TestApiBlackOmtResult, isNull)
   ASSERT_FALSE(res_null.isUnbounded());
   ASSERT_FALSE(res_null.isUnsat()); 
   ASSERT_FALSE(res_null.isUnknown()); 
+  std::stringstream ss;
+  ss << res_null;
+  ASSERT_EQ(res_null.toString(), ss.str());  
 }
 
+TEST_F(TestApiBlackOmtResult, equalDisequalHash)
+{
+  cvc5::OmtResult res1;
+  cvc5::OmtResult res2;
+  ASSERT_TRUE(res1==res2);
+  ASSERT_FALSE(res1!=res2);
+  ASSERT_EQ(std::hash<cvc5::OmtResult>{}(res1),
+            std::hash<cvc5::OmtResult>{}(res1));
+  ASSERT_EQ(std::hash<cvc5::OmtResult>{}(res1),
+            std::hash<cvc5::OmtResult>{}(res2));
+  ASSERT_EQ(std::hash<cvc5::OmtResult>{}(cvc5::OmtResult()),
+            std::hash<cvc5::OmtResult>{}(res2));
+}
 }  // namespace test
 }  // namespace cvc5::internal

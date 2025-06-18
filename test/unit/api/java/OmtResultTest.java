@@ -52,5 +52,16 @@ class OmtResultTest
     assertFalse(resNull.isUnbounded());
     assertFalse(resNull.isUnsat());
     assertFalse(resNull.isUnknown());
+    assertEquals(resNull.toString(), "(NONE)");
+  }
+
+  @Test
+  void equalDisequalHash()
+  {
+    OmtResult res1 = new OmtResult(); 
+    OmtResult res2 = new OmtResult(); 
+    assertTrue(res1.equals(res1));
+    assertEquals(res1.hashCode(), res1.hashCode());
+    assertEquals(res1.hashCode(), res2.hashCode());
   }
 }

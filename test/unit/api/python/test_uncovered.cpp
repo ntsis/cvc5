@@ -466,6 +466,16 @@ TEST_F(TestApiBlackUncovered, SynthResult)
             std::hash<cvc5::SynthResult>{}(res1));
 }
 
+TEST_F(TestApiBlackUncovered, OmtResult)
+{
+  cvc5::OmtResult res1 = cvc5::OmtResult();
+  cvc5::OmtResult res2 = cvc5::OmtResult();
+  ASSERT_EQ(std::hash<cvc5::OmtResult>{}(res1),
+            std::hash<cvc5::OmtResult>{}(res1));
+  ASSERT_EQ(std::hash<cvc5::OmtResult>{}(res1),
+            std::hash<cvc5::OmtResult>{}(res2));
+}
+
 // Copied from api/cpp/solver_black.cpp
 TEST_F(TestApiBlackUncovered, declareOracleFunUnsat)
 {

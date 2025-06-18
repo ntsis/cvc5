@@ -47,21 +47,6 @@ Java_io_github_cvc5_OmtResult_deletePointer(JNIEnv*, jobject, jlong pointer)
 
 /*
  * Class:     io_github_cvc5_OmtResult
- * Method:    isNull
- * Signature: (J)Z
- */
-JNIEXPORT jboolean JNICALL Java_io_github_cvc5_OmtResult_isNull(JNIEnv* env,
-                                                                  jobject,
-                                                                  jlong pointer)
-{
-  CVC5_JAVA_API_TRY_CATCH_BEGIN;
-  OmtResult* current = (OmtResult*)pointer;
-  return (jboolean)current->isNull();
-  CVC5_JAVA_API_TRY_CATCH_END_RETURN(env, (jboolean) false);
-}
-
-/*
- * Class:     io_github_cvc5_OmtResult
  * Method:    equals
  * Signature: (JJ)Z
  */
@@ -73,6 +58,21 @@ JNIEXPORT jboolean JNICALL Java_io_github_cvc5_OmtResult_equals(
   OmtResult* result2 = (OmtResult*)pointer2;
   // We compare the actual terms, not their pointers.
   return (jboolean)(*result1 == *result2);
+  CVC5_JAVA_API_TRY_CATCH_END_RETURN(env, (jboolean) false);
+}
+
+/*
+ * Class:     io_github_cvc5_OmtResult
+ * Method:    isNull
+ * Signature: (J)Z
+ */
+JNIEXPORT jboolean JNICALL Java_io_github_cvc5_OmtResult_isNull(JNIEnv* env,
+                                                                  jobject,
+                                                                  jlong pointer)
+{
+  CVC5_JAVA_API_TRY_CATCH_BEGIN;
+  OmtResult* current = (OmtResult*)pointer;
+  return (jboolean)current->isNull();
   CVC5_JAVA_API_TRY_CATCH_END_RETURN(env, (jboolean) false);
 }
 
