@@ -44,8 +44,8 @@ TEST_F(TestApiBlackOmtResult, equalDisequalHash)
 {
   cvc5::OmtResult res1;
   cvc5::OmtResult res2;
-  ASSERT_TRUE(res1==res2);
-  ASSERT_FALSE(res1!=res2);
+  ASSERT_TRUE(res1 == res2);
+  ASSERT_FALSE(res1 != res2);
   ASSERT_EQ(std::hash<cvc5::OmtResult>{}(res1),
             std::hash<cvc5::OmtResult>{}(res1));
   ASSERT_EQ(std::hash<cvc5::OmtResult>{}(res1),
