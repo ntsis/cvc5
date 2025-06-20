@@ -141,15 +141,14 @@ TEST_F(TestUtilWhiteOmtResult, statusStreamOutput)
 
 TEST_F(TestUtilWhiteOmtResult, equalResults)
 {
-  auto res_null = OmtResult();
-  auto res_optimal = OmtResult(OmtResult::Status::OPTIMAL);
-  auto res_limit_optimal = OmtResult(OmtResult::Status::LIMIT_OPTIMAL);
-  auto res_non_optimal = OmtResult(OmtResult::Status::NON_OPTIMAL);
-  auto res_unbounded = OmtResult(OmtResult::Status::UNBOUNDED);
-  auto res_unsat = OmtResult(OmtResult::Status::UNSAT);
-  auto res_unknown = OmtResult(OmtResult::Status::UNKNOWN);
+  OmtResult res_null = OmtResult();
+  OmtResult res_optimal = OmtResult(OmtResult::Status::OPTIMAL);
+  OmtResult res_limit_optimal = OmtResult(OmtResult::Status::LIMIT_OPTIMAL);
+  OmtResult res_non_optimal = OmtResult(OmtResult::Status::NON_OPTIMAL);
+  OmtResult res_unbounded = OmtResult(OmtResult::Status::UNBOUNDED);
+  OmtResult res_unsat = OmtResult(OmtResult::Status::UNSAT);
+  OmtResult res_unknown = OmtResult(OmtResult::Status::UNKNOWN);
 
-  // Reflexive: equal to itself
   ASSERT_EQ(res_optimal, res_optimal);
   ASSERT_EQ(res_limit_optimal, res_limit_optimal);
   ASSERT_EQ(res_non_optimal, res_non_optimal);
@@ -158,7 +157,6 @@ TEST_F(TestUtilWhiteOmtResult, equalResults)
   ASSERT_EQ(res_unknown, res_unknown);
   ASSERT_EQ(res_null, res_null);
 
-  // The Null result differs from all others
   ASSERT_NE(res_null, res_optimal);
   ASSERT_NE(res_null, res_limit_optimal);
   ASSERT_NE(res_null, res_non_optimal);
@@ -166,25 +164,20 @@ TEST_F(TestUtilWhiteOmtResult, equalResults)
   ASSERT_NE(res_null, res_unsat);
   ASSERT_NE(res_null, res_unknown);
 
-  // Different statuses are not equal
   ASSERT_NE(res_optimal, res_limit_optimal);
   ASSERT_NE(res_optimal, res_non_optimal);
   ASSERT_NE(res_optimal, res_unbounded);
   ASSERT_NE(res_optimal, res_unsat);
   ASSERT_NE(res_optimal, res_unknown);
-
   ASSERT_NE(res_limit_optimal, res_non_optimal);
   ASSERT_NE(res_limit_optimal, res_unbounded);
   ASSERT_NE(res_limit_optimal, res_unsat);
   ASSERT_NE(res_limit_optimal, res_unknown);
-
   ASSERT_NE(res_non_optimal, res_unbounded);
   ASSERT_NE(res_non_optimal, res_unsat);
   ASSERT_NE(res_non_optimal, res_unknown);
-
   ASSERT_NE(res_unbounded, res_unsat);
   ASSERT_NE(res_unbounded, res_unknown);
-
   ASSERT_NE(res_unsat, res_unknown);
 }
 
