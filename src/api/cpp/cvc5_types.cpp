@@ -237,7 +237,7 @@ std::string to_string(cvc5::modes::InputLanguage lang)
 }  // namespace std
 
 
-namespace cvc5 {
+namespace cvc5::modes {
 std::ostream& operator<<(std::ostream& out, ObjectiveKind ok)
 {
   switch (ok)
@@ -247,6 +247,7 @@ std::ostream& operator<<(std::ostream& out, ObjectiveKind ok)
     case ObjectiveKind::OBJECTIVE_MAX: out << "OBJECTIVE_MAX"; break;
     case ObjectiveKind::OBJECTIVE_LEX: out << "OBJECTIVE_LEX"; break;
     case ObjectiveKind::OBJECTIVE_PARETO: out << "OBJECTIVE_PARETO"; break;
+    case ObjectiveKind::OBJECTIVE_BOX: out << "OBJECTIVE_BOX"; break;
     case ObjectiveKind::OBJECTIVE_MINMAX: out << "OBJECTIVE_MINMAX"; break;
     case ObjectiveKind::OBJECTIVE_MAXMIN: out << "OBJECTIVE_MAXMIN"; break;
     default:
@@ -259,7 +260,7 @@ std::ostream& operator<<(std::ostream& out, ObjectiveKind ok)
 }  // namespace cvc5
 
 namespace std {
-std::string to_string(cvc5::ObjectiveKind ok)
+std::string to_string(cvc5::modes::ObjectiveKind ok)
 {
   std::stringstream ss;
   ss << ok;
@@ -268,7 +269,7 @@ std::string to_string(cvc5::ObjectiveKind ok)
 }  // namespace std
 
 
-namespace cvc5 {
+namespace cvc5::modes {
 std::ostream& operator<<(std::ostream& out, OMTStrategyKind osk)
 {
   switch (osk)
@@ -286,7 +287,7 @@ std::ostream& operator<<(std::ostream& out, OMTStrategyKind osk)
 }  // namespace cvc5
 
 namespace std {
-std::string to_string(cvc5::OMTStrategyKind osk)
+std::string to_string(cvc5::modes::OMTStrategyKind osk)
 {
   std::stringstream ss;
   ss << osk;
